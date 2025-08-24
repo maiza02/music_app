@@ -2,7 +2,7 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "master" ]  
   pull_request:
     branches: [ "master" ]
 
@@ -19,6 +19,9 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+        cache: maven
 
     - name: Build with Maven
+      working-directory: ./music_app
       run: mvn -B clean verify
+
